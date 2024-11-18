@@ -3,6 +3,7 @@ body {
   background-color: #f4f4f4;
   margin: 0;
   padding: 20px;
+  background-color: #d8d7d6;
 }
 
 h1 {
@@ -10,4 +11,48 @@ h1 {
   color: #333;
 }
 
+.divImagen img {
+  width: 100px;
+}
 
+h3 {
+  font-size:smaller;
+  margin: 4px 0px;
+  padding-left: 8px;
+ 
+}
+
+#listaUsuarios {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap:20px;
+
+}
+
+li {
+  border: solid 1px grey;
+  width: 370px;
+  padding: 7px;
+  background-color: white;
+}
+
+.contenedorPerfil {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  gap:10px;
+  
+}
+
+.divDatosPersonales {
+  width: 250px;
+  
+  padding:0px;
+  border: solid 1px grey;
+}
+ 
+.divDireccion {
+  padding-top: 3px;
+}
