@@ -7,7 +7,7 @@ fetch(`https://jsonplaceholder.typicode.com/users/`)
     }
     return response.json();
 })
-.then((data) => {
+.then((data) => {                         //vambiar data por users
     console.log(data);
     obtenerusuario(data);
     
@@ -26,7 +26,7 @@ function obtenerusuario(users) {
         perfil.classList.add('contenedorPerfil');
 
         /// Contenedor datos personales
-        const divDatos = document.createElement('div');
+        const divDatos = document.createElement('div');                    //hacelo con .innerHTML challenge U1S5 1:30
         divDatos.classList.add('divDatosPersonales');
         
         const name = document.createElement('h3');
@@ -54,9 +54,9 @@ function obtenerusuario(users) {
         const divImagen = document.createElement('div');
         divImagen.classList.add('divImagen');
         const img = document.createElement('img');
-        img.src = `/assets/img/${i+1}.jpeg`; 
+        img.src = `users/assets/img/${i+1}.jpeg`; 
         img.alt = 'Foto de Usuario' ;                     
-        divImagen.appendChild(img)
+        divImagen.appendChild(img);
         
         //Incluyo contenedor datos personales e imagen en Contenedor perfil
         
