@@ -7,15 +7,30 @@ fetch(`https://jsonplaceholder.typicode.com/users/`)
         }
         return response.json();
     })
-    .then((data) => {                         //vambiar data por users
+    .then((data) => {                                                                 //deberia haber incluido lo comentado
         console.log(data);
         obtenerusuario(data);
+    
+        /* .then((usuarios) => {                                                      //solucion con map y destruction
+        const usuariosConDetalles = usuarios.map((usuario, indiceActual, array) => {
+            const edad = generarEdadAleatoria(18, 65);                                 //definido antes
+            const img = `./assets/img/${usuario.id}.jpeg`;
+            const { street, suite, city } = usuario.address;
+            const address = `${street}, ${suite}, ${city}`;
+            return {
+                    ...usuario,
+                    edad,
+                    img,
+                    address,
+                } 
+            })*/
     });
 
 
 function obtenerusuario(users) {
     const lista = document.getElementById('listaUsuarios');
-    lista.innerHTML = '';
+    
+    
 
     users.forEach((user, i) => {
         const li = document.createElement('li');
@@ -38,13 +53,15 @@ function obtenerusuario(users) {
                 <h3>Dirección: ${user.address.street} ${user.address.suite} ${user.address.city}</h3>
             </div>
         </div>`;
+        
+        //! Solucion 2__________________________________________________________________________________________________________________
 
         /* // Contenedor Datos/Imagen 
         const perfil = document.createElement('div');
         perfil.classList.add('contenedorPerfil');
 
         /// Contenedor datos personales
-        const divDatos = document.createElement('div');                    //hacelo con .innerHTML challenge U1S5 1:30
+        const divDatos = document.createElement('div');                    
         divDatos.classList.add('divDatosPersonales');
 
         const name = document.createElement('h3');
@@ -97,6 +114,29 @@ function obtenerusuario(users) {
         //incluyo todo en el li
         //li.appendChild(perfil);
         li.appendChild(direccion); */
+
+        //Solucion 3 __________________________________________________________________________________________________________________
+
+        /* const mostrarUsuarios = (usuarios) => {
+            usuarios.forEach(({ name, edad, username, img, phone, email, company, address }) => {
+                const cadaUsuario = document.createElement('li');
+                cadaUsuario.innerHTML = `
+                    <div class='userInfo'>
+                        <div class='imagen'>
+                            <img src='${img}' alt='Imagen de ${name}' width='150' >
+                        </div>
+                        <div class='datos'>
+                            <p><strong>Nombre: </strong>${name}</p>
+                            <p><strong>Edad: </strong>${edad}</p>
+                            <p><strong>Username: </strong>${username}</p>
+                            <p><strong>Teléfono: </strong>${phone}</p>
+                            <p><strong>Email: </strong>${email}</p>
+                        </div>
+                        <p><strong>Compañía: </strong>${company.name}</p>
+                        <p><strong>Dirección: </strong>${address}</p>
+                    </div>
+                `; */
+        
 
         //incluyo el li en el ul
         lista.appendChild(li);
